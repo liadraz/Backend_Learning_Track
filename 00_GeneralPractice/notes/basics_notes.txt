@@ -1,0 +1,145 @@
+---
+ 01 - Basic
+---
+
+    Data Types
+    Conditions
+    Loops
+    libraries
+    wrtieline / readline1
+    Strong Typing
+    Value vs Reference Types
+    Optional parameters, named arguments and positional arguments
+    const, readonly 
+    Cast
+            widening conversion - Rely on implicit conversion
+            Convert a value from a data type that could hold less information to a data type that can hold more information
+
+            narrowing conversion - Explicit conversion
+            When performing a narrowing conversion, you need to perform a cast
+
+            ToString() method
+            Every data type variable has a ToString() method. On most primitives, it performs a widening conversion
+            ** Used to notify other developers that a conversion is taking place. Yet can occur implicitly
+
+            Parse() method
+            Most of the numeric data types have a Parse() method.
+            ** Used to explicitly convert a string into a numeric data type. Not safe operation.
+
+            Convert class
+            has many helper methods to convert a value from one type into another.
+
+                Feature	                Parse	                            Convert
+            Handles null safely	    Throws ArgumentNullException	Returns default (e.g., 0)
+            Handles invalid format	Throws FormatException	        Throws FormatException
+            Handles other types     Only strings	                Multiple types
+            Performance	            Slightly faster	                Slightly slower
+            Best for	            Safe, guaranteed strings	    Defensive, flexible code
+
+            TryParse() method
+                Safer convertion of string data into a numeric data type
+                - It attempts to parse a string into the given numeric data type.
+                - If successful, it stores the converted value in an out parameter
+                - It returns a bool to indicate whether the action succeeded or failed.
+
+            Strings
+                ToString, Parse, TryParse, Convert
+
+            Numeric
+                (type), Convert
+
+    Arrays
+
+        General Array methods
+            Array.Sort
+            Array.Reverse
+            Array.Clear
+            Array.Resize
+
+        String to Array
+            ToCharArray()    Copies string characters to array of chars
+            String.Split()   Returns an array of substrings using a provided delimiter
+
+        Array to a string
+            String.Join()    combine elements of a specified array using separator between each element
+            Create a new string passing in an array of char -> string s = new string(valueArray);
+
+    Strings
+
+        String Formatting
+
+            Composite formatting - uses numbered placeholders within a string.
+            String interpolation - A technique that simplifies composite formatting. use the variable name inside of the curly braces
+
+            Formatting currency :C currency format specifier
+            Formatting numbers :N numeric format specifier makes numbers more readable.
+            Formatting percentages :P format specifier to format percentages and rounds to 2 decimal places
+
+            Formatting purposes (PadLeft(), PadRight())
+            Compare two strings or facilitate comparison (Trim(), TrimStart(), TrimEnd(), GetHashcode(), the Length property)
+            What's inside of a string, or a part of the string (Contains(), StartsWith(), EndsWith(), Substring())
+            Change the content of the string (Replace(), Insert(), Remove())
+            Turn a string into an array of strings or characters (Split(), ToCharArray())
+
+        .IndexOf()       method returns the index of the first occurrence of a specified character
+        .LastIndexOf()   returns the index position of the last occurrence of a character
+                        Both return -1 if not found
+        .Substring()     Retrieves a substring from this instance.
+        .IndexOfAny()    reports the index of the first occurrence of any character
+
+        Remove()         deletes the specified characters in the string.
+        Replace()        swaps all instances of a string with a new string
+        Method Overloading
+
+    exeptions - try, catch, finally, throw, 
+    `checked` keyword is used to enable overflow checking for arithmetic
+
+
+---
+02 - OOP
+---
+
+    struct vs class
+
+    classes
+    constructor
+    static 
+    methods
+    properties
+    fields
+    Access Modifiers (public/private)
+    this, base
+    
+    interface
+    SOLID Principles
+    Abstraction, Encapsulation, Polymorphism, inheritance
+    abstract vs virtual 
+    interface vs abstract class
+
+    Need To Learn - 
+        Collections - List, Dictionary
+        
+
+---
+03 - Advanced
+---
+
+    in, ref, out
+    IEnumerable, IQueryable
+    delegate
+    event
+    Anonymous Functions
+    
+    dependency injection
+    
+    boxing ו-unboxing
+    extension methods
+    Attributes
+    preprocessor directives
+    unsafe code
+    
+    Deferred execution
+    dynamic bindings
+
+    LINQ - Select, Where, OrderBy, GroupBy
+    async, await
