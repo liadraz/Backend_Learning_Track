@@ -1,0 +1,32 @@
+LINQ
+============
+
+query syntax
+method syntax
+    The compiler translates LINQ statements written with query syntax into the equivalent method call syntax.
+
+    This method declaration also follows a standard idiom where the input and output types are IEnumerable<T>. That practice enables LINQ methods to be chained together to perform more complex queries.
+    a second LINQ idiom: terminal methods
+
+
+LINQ eager or lazy evaluation
+===============================
+    Deferred (lazy) evaluation — most IEnumerable<T> LINQ methods:
+    These are not executed immediately, but only when you iterate over the result.
+        Where
+        Select
+        Skip
+        Take
+        OrderBy 
+
+    Eager evaluation — happens when you force execution :
+        ToList()
+        ToArray()
+        Count()
+        Sum()
+        Any(), All()
+        First(), Last()
+        
+    Tip:
+        - If you're chaining many filters and want performance, leave it lazy until you need the result.
+        - Use eager (ToList()) only if you need a materialized result now.

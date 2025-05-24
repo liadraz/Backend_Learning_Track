@@ -141,5 +141,57 @@
     Deferred execution
     dynamic bindings
 
-    LINQ - Select, Where, OrderBy, GroupBy
     async, await
+
+
+Extension Methods
+=========================
+let you “add” new methods to existing types without modifying their source code or creating a new derived type.
+
+They’re useful when you want to extend built-in types (like string, int, List<T>, etc.) or even your own classes — in a clean, reusable way.
+
+How it works:
+    - You define a public static method inside a static class.
+    - The first parameter has the this keyword and tells C# the method is for that type.
+    - You call it like an instance method.
+
+ Why Must Extension Methods Be static?
+    Because you’re not actually modifying the original type — you’re just using a C# compiler trick that makes it look like the method belongs to the object.
+        - The method lives outside the type, so it must be static.
+        - It can’t be an instance method — because you don’t own the original class (e.g., string, int).
+        - Extension methods are syntactic sugar — they give you a clean, natural way to call static helper functions.
+
+Why this in the First Parameter?
+
+The this tells the compiler:
+    “I’m extending the int type. When someone writes x.IsEven(), treat x as the first parameter.”
+So:
+    - this int number → defines what type you're extending (int)
+    - The rest of the parameters are normal input
+
+    e.g
+        public static class MyExtensions
+        {
+            public static ReturnType MethodName(this Type typeToExtend, otherParams)
+            {
+                // logic
+            }
+        }
+
+Partial Class
+===================
+Split class definition across multiple files
+
+
+Extension Method vs Partial Class
+Feature	                    Extension Method	                    Partial Class
+Purpose	                Add methods to existing types externally	        Split class definition across multiple files
+Keyword used	            this (on the first parameter)	    partial (on class/method declaration)
+Connection to class	    Defined outside the class	            Defined as part of the same class
+Must be static?	        Yes (method & containing class)	        No (can be instance or static)
+Use case	                Add methods to types you don’t own	Organize large classes or mix generated code
+Works at runtime?	    No — compiler “glues” it together at compile time	    Same — compiler merges into one class
+
+ Do Extension Methods Override Existing Methods?
+    ❌ No, they don’t override anything.
+    They just appear like instance methods through compiler trickery, but if the actual type already has a method with the same name and signature — that method takes priority.
