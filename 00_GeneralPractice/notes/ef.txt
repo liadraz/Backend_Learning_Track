@@ -78,11 +78,14 @@ Create simple C# classes to represent your data, for example:
 -----------------------------------------------------
 Create a class that inherits from DbContext:
 
+    using Microsoft.EntityFrameworkCore;
+    
     public class PizzaContext : DbContext
     {
         public PizzaContext(DbContextOptions<PizzaContext> options) : base(options) { }
 
         public DbSet<Pizza> Pizzas => Set<Pizza>();
+        ... // Add DBsets for each table
     }
 
 5. Configure the Database Connection
@@ -104,9 +107,12 @@ What is a Connection String?
 -----------------------------------------------------
 Run the following to create the initial database schema:
 
-    dotnet ef migrations add InitialCreate --context DerivedDbContext
+    dotnet ef migrations add InitialCreate --context `DerivedDbContext`
 
 This creates a Migrations folder with code that defines your schema.
+    * if migration fails -> EF Core CLI needs a reliable way to create an instance of your `DbContext` without running your application code (like `Program.cs`).
+    Implementing `IDesignTimeDbContextFactory<T>` provides exactly that — it's like a special constructor just for dotnet ef.
+
 
 7. Apply the Migration to the Database
 -----------------------------------------------------
@@ -357,8 +363,9 @@ In Entity Framework (and in programming in general), this can cause problems lik
             - Author has a list of Books
             - Each Book has an Author
             SO => Author → Book → Author → Book → ...
+
 How to solve it 
-    - Use [JsonIgnore]
+    - Use [JsonIgnore]  + using System.Text.Json.Serialization;
     - Use DTOs (Data Transfer Objects)
     - Configure serializer to handle loops
 
