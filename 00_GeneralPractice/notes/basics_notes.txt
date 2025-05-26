@@ -125,6 +125,13 @@
 ---
 
     in, ref, out
+| Keyword | Direction        | Must be assigned before call? | Must be assigned inside method? | Allows modification inside method? | Use case                                       |
+| ------- | ---------------- | ----------------------------- | ------------------------------- | ---------------------------------- | ---------------------------------------------- |
+| `in`    | Input (readonly) | ✅ Yes                        | ❌ No                          | ❌ No                             | Pass large structs efficiently without copying |
+| `ref`   | Input + Output   | ✅ Yes                        | ✅ Yes                         | ✅ Yes                            | Modify existing variable                       |
+| `out`   | Output only      | ❌ No                         | ✅ Yes                         | ✅ Yes                            | Return multiple values                         |
+
+
     IEnumerable, IQueryable
     delegate
     event

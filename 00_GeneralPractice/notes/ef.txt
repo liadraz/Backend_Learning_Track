@@ -474,3 +474,78 @@ UI                       Console I/O           HTTP (API or Views)
 Uses Controllers?        No                    Yes
 Uses Services Layer?     Optional              Recommended
 Views Folder             No                    Yes (if using MVC)
+
+----
+
+DbSet<T>
+================
+
+What does _context.Books represent in C# (EF Core)?
+    _context.Books is a DbSet<Book> — it represents a table in your database mapped to a C# entity class.
+
+    It gives you a way to:
+        🔍 Query data (SELECT)
+        ➕ Add new books (INSERT)
+        ✏️ Update books (UPDATE)
+        ❌ Delete books (DELETE)
+
+🔧 Common methods you can use on _context.Books
+Reading (queries)
+| Method                            | Description                        |
+| --------------------------------- | ---------------------------------- |
+| `.ToList()`                       | Materializes all records as a list |
+| `.First()`, `.FirstOrDefault()`   | Gets the first matching item       |
+| `.Single()`, `.SingleOrDefault()` | Gets a single unique matching item |
+| `.Find(key)`                      | Finds by primary key (fast)        |
+| `.Where(condition)`               | Filters based on condition         |
+| `.Include(navProperty)`           | Eager-load related data (joins)    |
+| `.AsNoTracking()`                 | Better performance when read-only  |
+| `.OrderBy()`, `.ThenBy()`         | Sort results                       |
+| `.Take(n)`, `.Skip(n)`            | Paging                             |
+| `.Count()`, `.Any()`              | Aggregates                         |
+
+
+Adding
+| Method          | Description            |
+| --------------- | ---------------------- |
+| `Add(entity)`   | Adds one entity        |
+| `AddRange(...)` | Adds multiple entities |
+
+
+Updating
+| Method                 | Description                               |
+| ---------------------- | ----------------------------------------- |
+| Modify entity directly | EF tracks changes automatically           |
+| `Update(entity)`       | Marks entity as modified (if not tracked) |
+
+    book.Title = "New Title";
+    _context.Books.Update(book);  // optional if already tracked
+
+Deleting
+| Method             | Description               |
+| ------------------ | ------------------------- |
+| `Remove(entity)`   | Deletes a single entity   |
+| `RemoveRange(...)` | Deletes multiple entities |
+
+
+Utility & Helpers
+| Method / Pattern                | Purpose                           |
+| ------------------------------- | --------------------------------- |
+| `.Attach(entity)`               | Attach entity without fetching it |
+| `.Entry(entity).State`          | Manually control entity state     |
+| `context.ChangeTracker.Clear()` | Detach all tracked entities       |
+| `.Local`                        | Access in-memory tracked entities |
+
+Under The Hood
+| Concept          | Meaning                                         |
+| ---------------- | ----------------------------------------------- |
+| `DbSet<T>`       | Represents a table of type `T`. Acts like a collection (List<T>) but it's backed by the db.                  |
+| Tracked Entity   | EF Core watches for changes to auto-save        |
+| Untracked Entity | EF ignores changes (useful for read-only views) |
+
+Best Practices
+| Practice                                  | Why                               |
+| ----------------------------------------- | --------------------------------- |
+| Use `.AsNoTracking()` for read-only       | Faster, no change tracking needed |
+| Avoid fetching large datasets all at once | Use paging (`Skip`, `Take`)       |
+| Prefer `Find()` when searching by ID      | Uses fast key lookup              |
