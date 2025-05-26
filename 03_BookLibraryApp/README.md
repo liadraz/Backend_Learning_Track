@@ -41,7 +41,7 @@ Each book must be assigned to a single author (One-to-Many relationship).
 
 ## Technical Requirements
 
-- EF Core (recommended: SQLite for simplicity)
+- EF Core (use SQLite for simplicity)
 - Use `DbContext` for managing the database
 - Define entities with relationships (One-to-Many between Authors and Books)
 - Use `Migrations` to create and update the database schema

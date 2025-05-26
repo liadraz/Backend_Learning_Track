@@ -10,4 +10,13 @@ public class Book
 
     [JsonIgnore]
     public Author? Author { get; set; }
+
+    public Book() { }
+
+    public Book(string title, Author author)
+    {
+        Title = title;
+        Author = author ?? throw new ArgumentNullException(nameof(author));
+        AuthorId = author.Id;
+    }
 }
