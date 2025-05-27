@@ -22,8 +22,8 @@ The repository contains a collection of small weekly projects, focused on applyi
 |------|---------|-------------|
 | 1 | [ToDo Console App](./01_ToDoApp/) | Basic task manager using `List<T>`, classes, and input/output |
 | 2 | [OOP Refactor](./02_OOP_Refactor/) | OOP, interfaces, and clean code separation |
-| 3 | [Recurring Tasks](./03_BookLibraryApp/) | Library system app built with EF Core with a real database |
-| 4 | [Recurring Tasks](./04_CustomerManagmentApp/) | CRUD, DTO, Dependency Injection |
+| 3 | [Entity Framework Core](./03_BookLibraryApp/) | Library system app built with EF Core with a real database |
+| 4 | [RESTful API](./04_CustomerManagmentApp/) | CRUD, DTO, Dependency Injection |
 
 ---
 
