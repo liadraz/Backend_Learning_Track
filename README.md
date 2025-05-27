@@ -1,6 +1,6 @@
-# C# Learning Track – Weekly Practice Projects
+# Backend Developer Learning Track – Weekly Practice Projects
 
-This repository documents my personal learning path towards becoming a proficient Backend Developer (Full Stack), using C#, .NET Core, JS, React, and supporting technologies.
+This repository documents my personal learning path towards becoming a proficient Backend Developer (Full Stack), using C#, .NET Core, JS/TS, React, and supporting technologies.
 
 The repository contains a collection of small weekly projects, focused on applying specific programming concepts like OOP, data structures, clean code, and design principles. Each project reflects what I learned that week.
 
@@ -8,11 +8,11 @@ The repository contains a collection of small weekly projects, focused on applyi
 
 ## Overview
 
-- Language: C#
-- Frameworks: .NET Core / ASP.NET Core
-- Concepts: OOP, Abstraction, Polymorphism, Interfaces, Encapsulation
-- Tools: LINQ, Entity Framework Core, Unit Testing, Git
-- Development Style: Console apps, modular structure, command-line interfaces
+- Language: C# / JS - TS / SQL
+- Frameworks: .NET Core / ASP.NET Core / React
+- Concepts: OOP, SOLID, Design Patterns
+- Tools: LINQ, SQL, ORMs, EF, Unit Testing, Git
+- Development Style: Console apps, modular structure, command-line interfaces, Web apps
 
 ---
 
@@ -20,10 +20,10 @@ The repository contains a collection of small weekly projects, focused on applyi
 
 | Week | Project | Description |
 |------|---------|-------------|
-| 1 | [ToDo Console App](./Week01_ToDoApp/) | Basic task manager using `List<T>`, classes, and input/output |
-| 2 | [OOP Refactor](./Week02_OOP_Refactor/) | Introduced inheritance, interfaces, and clean code separation |
-| 3 | [Recurring Tasks](./Week03_RecurringTasks/) | Custom task type with internal scheduling logic (OOP advanced) |
-| 4+ | Coming Soon | More backend-focused projects (API, EF Core, etc.) |
+| 1 | [ToDo Console App](./01_ToDoApp/) | Basic task manager using `List<T>`, classes, and input/output |
+| 2 | [OOP Refactor](./02_OOP_Refactor/) | OOP, interfaces, and clean code separation |
+| 3 | [Recurring Tasks](./03_BookLibraryApp/) | Library system app built with EF Core with a real database |
+| 4 | [Recurring Tasks](./04_CustomerManagmentApp/) | CRUD, DTO, Dependency Injection |
 
 ---
 
@@ -44,7 +44,6 @@ Every folder contains a self-contained project with a `README.md` and runnable c
 Stay tuned for:
 
 - ASP.NET Core Web API projects  
-- EF Core with SQL Server  
 - Authentication with JWT  
 - Frontend integration with React
 
