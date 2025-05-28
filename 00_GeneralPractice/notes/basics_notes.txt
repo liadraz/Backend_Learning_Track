@@ -2,98 +2,96 @@
  01 - Basic
 ---
 
-    Data Types
-    Conditions
-    Loops
-    libraries
-    wrtieline / readline1
-    Strong Typing
-    Value vs Reference Types
-    Optional parameters, named arguments and positional arguments
-    const, readonly 
-    Cast
-            widening conversion - Rely on implicit conversion
-            Convert a value from a data type that could hold less information to a data type that can hold more information
+Data Types
+Conditions
+Loops
+libraries
+wrtieline / readline1
+Strong Typing
+Value vs Reference Types
+Optional parameters, named arguments and positional arguments
+const, readonly
 
-            narrowing conversion - Explicit conversion
-            When performing a narrowing conversion, you need to perform a cast
+Cast - Numerics and Strings
+    widening conversion - Rely on implicit conversion
+        Convert a value from a data type that could hold less information to a data type that can hold more information
 
-            ToString() method
-            Every data type variable has a ToString() method. On most primitives, it performs a widening conversion
-            ** Used to notify other developers that a conversion is taking place. Yet can occur implicitly
+    narrowing conversion - Explicit conversion
+        When performing a narrowing conversion, you need to perform a cast
 
-            Parse() method
-            Most of the numeric data types have a Parse() method.
-            ** Used to explicitly convert a string into a numeric data type. Not safe operation.
+    ToString() method
+        Every data type variable has a ToString() method. On most primitives, it performs a widening conversion
+    ** Used to notify other developers that a conversion is taking place. Yet can occur implicitly
 
-            Convert class
-            has many helper methods to convert a value from one type into another.
+    Parse() method
+        Most of the numeric data types have a Parse() method.
+        ** Used to explicitly convert a string into a numeric data type. Not safe operation.
 
-                Feature	                Parse	                            Convert
-            Handles null safely	    Throws ArgumentNullException	Returns default (e.g., 0)
-            Handles invalid format	Throws FormatException	        Throws FormatException
-            Handles other types     Only strings	                Multiple types
-            Performance	            Slightly faster	                Slightly slower
-            Best for	            Safe, guaranteed strings	    Defensive, flexible code
+    Convert class
+        has many helper methods to convert a value from one type into another.
 
-            TryParse() method
-                Safer convertion of string data into a numeric data type
-                - It attempts to parse a string into the given numeric data type.
-                - If successful, it stores the converted value in an out parameter
-                - It returns a bool to indicate whether the action succeeded or failed.
+        Feature	                Parse	                            Convert
+    Handles null safely	    Throws ArgumentNullException	Returns default (e.g., 0)
+    Handles invalid format	Throws FormatException	        Throws FormatException
+    Handles other types     Only strings	                Multiple types
+    Performance	            Slightly faster	                Slightly slower
+    Best for	            Safe, guaranteed strings	    Defensive, flexible code
 
-            Strings
-                ToString, Parse, TryParse, Convert
+    TryParse() method
+        Safer convertion of string data into a numeric data type
+        - It attempts to parse a string into the given numeric data type.
+        - If successful, it stores the converted value in an out parameter
+        - It returns a bool to indicate whether the action succeeded or failed.
 
-            Numeric
-                (type), Convert
+    Overall Methods Use
+        Strings                                     Numeric
+            ToString, Parse, TryParse, Convert     (type), Convert
 
-    Arrays
+Arrays
 
-        General Array methods
-            Array.Sort
-            Array.Reverse
-            Array.Clear
-            Array.Resize
+    General Array methods
+        Array.Sort
+        Array.Reverse
+        Array.Clear
+        Array.Resize
 
-        String to Array
-            ToCharArray()    Copies string characters to array of chars
-            String.Split()   Returns an array of substrings using a provided delimiter
+    String to Array
+        ToCharArray()    Copies string characters to array of chars
+        String.Split()   Returns an array of substrings using a provided delimiter
 
-        Array to a string
-            String.Join()    combine elements of a specified array using separator between each element
-            Create a new string passing in an array of char -> string s = new string(valueArray);
+    Array to a string
+        String.Join()    combine elements of a specified array using separator between each element
+        Create a new string passing in an array of char -> string s = new string(valueArray);
 
-    Strings
+Strings
 
-        String Formatting
+    String Formatting
 
-            Composite formatting - uses numbered placeholders within a string.
-            String interpolation - A technique that simplifies composite formatting. use the variable name inside of the curly braces
+        Composite formatting - uses numbered placeholders within a string.
+        String interpolation - A technique that simplifies composite formatting. use the variable name inside of the curly braces.
 
-            Formatting currency :C currency format specifier
-            Formatting numbers :N numeric format specifier makes numbers more readable.
-            Formatting percentages :P format specifier to format percentages and rounds to 2 decimal places
+        :C Formatting currency, currency format specifier
+        :N Formatting numbers, numeric format specifier makes numbers more readable.
+        :P Formatting percentages, format specifier to format percentages and rounds to 2 decimal places
 
-            Formatting purposes (PadLeft(), PadRight())
-            Compare two strings or facilitate comparison (Trim(), TrimStart(), TrimEnd(), GetHashcode(), the Length property)
-            What's inside of a string, or a part of the string (Contains(), StartsWith(), EndsWith(), Substring())
-            Change the content of the string (Replace(), Insert(), Remove())
-            Turn a string into an array of strings or characters (Split(), ToCharArray())
+        Formatting purposes (PadLeft(), PadRight())
+        Compare two strings or facilitate comparison (Trim(), TrimStart(), TrimEnd(), GetHashcode(), the Length property)
+        What's inside of a string, or a part of the string (Contains(), StartsWith(), EndsWith(), Substring())
+        Change the content of the string (Replace(), Insert(), Remove())
+        Turn a string into an array of strings or characters (Split(), ToCharArray())
 
-        .IndexOf()       method returns the index of the first occurrence of a specified character
-        .LastIndexOf()   returns the index position of the last occurrence of a character
-                        Both return -1 if not found
-        .Substring()     Retrieves a substring from this instance.
-        .IndexOfAny()    reports the index of the first occurrence of any character
+    .IndexOf()       method returns the index of the first occurrence of a specified character
+    .LastIndexOf()   returns the index position of the last occurrence of a character
+                    Both return -1 if not found
+    .Substring()     Retrieves a substring from this instance.
+    .IndexOfAny()    reports the index of the first occurrence of any character
 
-        Remove()         deletes the specified characters in the string.
-        Replace()        swaps all instances of a string with a new string
-        Method Overloading
+    Remove()         deletes the specified characters in the string.
+    Replace()        swaps all instances of a string with a new string
+    Method Overloading
 
-    exeptions - try, catch, finally, throw, 
+exeptions - try, catch, finally, throw, 
     `checked` keyword is used to enable overflow checking for arithmetic
-
 
 ---
 02 - OOP
