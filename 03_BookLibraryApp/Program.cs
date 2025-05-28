@@ -1,6 +1,9 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+
 using Library.Data;
+using Library.Services;
+using Library.UI;
 
 namespace Library.App;
 public class LibraryApp
@@ -11,6 +14,10 @@ public class LibraryApp
             .UseSqlite(LibraryContext.ConnectionString)
             .Options;
 
-        var db = new LibraryContext(options);
+        using var context = new LibraryContext(options);
+        var service = new LibraryService(context);
+
+        var ui = new ConsoleUI(service);
+        ui.Run();
     }
 }

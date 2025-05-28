@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Library.Data;
 
-namespace Library.Service;
+using Library.Data;
+using Library.Models;
+
+namespace Library.Services;
 
 public class LibraryService
 {
@@ -13,14 +15,14 @@ public class LibraryService
         _context = context;
     }
 
-    public void AddBook(string title, string authorName)
+    public void CreateBook(string title, string authorName)
     {
         var author = _context.Authors
             .FirstOrDefault(a => a.Name == authorName);
 
         if (author == null)
         {
-            author = AddAuthor(authorName);
+            author = CreateAuthor(authorName);
         }
 
         var book = new Book(title, author);
@@ -39,7 +41,7 @@ public class LibraryService
         return author;
     }
 
-    public void AddUser(string name)
+    public void CreateUser(string name)
     {
         var user = new User(name);
 
@@ -47,7 +49,7 @@ public class LibraryService
         _context.SaveChanges();
     }
 
-    public List<Book> GetBooks()
+    public List<Book> GetAllBooks()
     {
         return _context.Books
             .Include(b => b.Author)     // join two tables
@@ -119,8 +121,14 @@ public class LibraryService
         return _context.Authors
             .Include(a => a.Books)
             .AsNoTracking()
+            .AsEnumerable()
             .Select(a => (a.Name, a.Books.Count))
             .ToList();
+    }
+
+    public bool IsBookExists(string title)
+    {
+        return false;
     }
 }
 
