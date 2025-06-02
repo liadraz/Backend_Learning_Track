@@ -1,32 +1,53 @@
 LINQ
 ============
 
-query syntax
-method syntax
+    Linq has two forms to be written - 
+        1. query syntax     Preferabl by microsoft, more readable.
+        2. method syntax
+
     The compiler translates LINQ statements written with query syntax into the equivalent method call syntax.
 
-    This method declaration also follows a standard idiom where the input and output types are IEnumerable<T>. That practice enables LINQ methods to be chained together to perform more complex queries.
-    a second LINQ idiom: terminal methods
+    Expression methods and lambda expressions are fundamental how linq works.
+    Linq functionality is encapsulated in two static classes -> queryable and enumerable.
+    This classes contain extention methods.
+
+    
+    The developer is able to execute linq with deferred or imdediate execution ->
+    1. Deferred execution ( Lazy Evaluation )
+        An evaluation of an expression is delayed until its value is required.
+        This improves performance.
+        Another advantage is that an update to the relevant data collection
+        will immediately be reflected in the results
+    2. Immidieate execution
+        Encapsulate the query in brackets and call the ToArray / ToList method
+        to force the query to execute and be returned as an array / list.
+
+    LINQ eager or lazy evaluation
+        Deferred (lazy) evaluation — most IEnumerable<T> LINQ methods:
+        These are not executed immediately, but only when you iterate over the result.
+            Where
+            Select
+            Skip
+            Take
+            OrderBy 
+
+        Eager evaluation — happens when you force execution :
+            ToList()
+            ToArray()
+            Count()
+            Sum()
+            Any(), All()
+            First(), Last()
+            
+        Tip:
+            - If you're chaining many filters and want performance, leave it lazy until you need the result.
+            - Use eager (ToList()) only if you need a materialized result now.
 
 
-LINQ eager or lazy evaluation
-===============================
-    Deferred (lazy) evaluation — most IEnumerable<T> LINQ methods:
-    These are not executed immediately, but only when you iterate over the result.
-        Where
-        Select
-        Skip
-        Take
-        OrderBy 
 
-    Eager evaluation — happens when you force execution :
-        ToList()
-        ToArray()
-        Count()
-        Sum()
-        Any(), All()
-        First(), Last()
-        
-    Tip:
-        - If you're chaining many filters and want performance, leave it lazy until you need the result.
-        - Use eager (ToList()) only if you need a materialized result now.
+Join Operator
+===============
+
+
+GroupJoin Operator
+=====================
