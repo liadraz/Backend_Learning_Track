@@ -255,3 +255,36 @@ Anonymous types
         Console.WriteLine(v.Amount + v.Message);
 
     Anonymous types are typically used in the select clause of a query expression to return a subset of the properties from each object in the source sequence. 
+
+new keyword
+===========
+
+    When do I need to use new in C# when returning from a function?
+
+    You don’t need new when:
+        Calling a method that returns a string (e.g. s.ToUpper(), string.Concat(...))
+        Using string interpolation: $"{name} is here"
+        Returning an existing string variable
+        Performing expressions or operations that return values
+
+            e.g
+                return "hello";
+                return s.ToUpper();
+                return string.Join(", ", items);
+                return $"Total: {total}";
+        
+    Special Case
+        Creating a string from a char array
+            e.g
+                var chars = new[] { 'H', 'i' };
+                string s = new string(chars); // creates "Hi"
+
+    Use new when:
+        Creating an instance of a class, array, or struct
+        Explicitly initializing a type
+
+            e.g
+                var sb = new StringBuilder();       // class
+                var arr = new int[5];               // array
+                var dt = new DateTime(2023, 1, 1);  // struct
+                var person = new Person();          // object

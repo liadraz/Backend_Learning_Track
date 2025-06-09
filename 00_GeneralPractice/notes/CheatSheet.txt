@@ -1,0 +1,77 @@
+Here is the updated and complete **C# cheatsheet** with all previous tables, now including the missing `string.Concat` and clarifying **array → string** conversions.
+
+---
+
+### 🔷 Arrays
+
+| Method                              | Returns | Type   | Description                               |
+| ----------------------------------- | ------- | ------ | ----------------------------------------- |
+| `Array.Sort(array)`                 | void    | Static | Sorts the array in ascending order        |
+| `Array.Reverse(array)`              | void    | Static | Reverses the order of elements            |
+| `Array.IndexOf(array, value)`       | int     | Static | Finds index of first occurrence           |
+| `Array.Exists(array, predicate)`    | bool    | Static | Checks if any element matches condition   |
+| `Array.Find(array, predicate)`      | T       | Static | Returns the first matching element        |
+| `Array.FindAll(array, predicate)`   | T\[]    | Static | Returns all matching elements             |
+| `Array.Copy(src, dest, length)`     | void    | Static | Copies elements from one array to another |
+| `Array.Clear(array, index, length)` | void    | Static | Resets elements to default                |
+
+---
+
+### 🔶 Strings
+
+| Method                           | Returns   | Type        | Description                                   |
+| -------------------------------- | --------- | ----------- | --------------------------------------------- |
+| `string.IsNullOrEmpty(str)`      | bool      | Static      | Checks if string is null or empty             |
+| `string.IsNullOrWhiteSpace(str)` | bool      | Static      | Checks if string is null or whitespace        |
+| `str.ToUpper()`                  | string    | Instance    | Converts to uppercase                         |
+| `str.ToLower()`                  | string    | Instance    | Converts to lowercase                         |
+| `str.Contains(value)`            | bool      | Instance    | Checks if substring exists                    |
+| `str.StartsWith(value)`          | bool      | Instance    | Checks if string starts with value            |
+| `str.EndsWith(value)`            | bool      | Instance    | Checks if string ends with value              |
+| `str.Substring(start, length)`   | string    | Instance    | Gets substring from index                     |
+| `str.Trim()`                     | string    | Instance    | Removes whitespace from both ends             |
+| `str.Replace(old, new)`          | string    | Instance    | Replaces all occurrences                      |
+| `str.Split(separator)`           | string\[] | Instance    | Splits string into parts                      |
+| `str.IndexOf(value)`             | int       | Instance    | Finds index of substring                      |
+| `string.Join(separator, array)`  | string    | Static      | Joins array into string with separator        |
+| `string.Concat(array)`           | string    | Static      | Joins array into string with **no separator** |
+| `new string(charArray)`          | string    | Constructor | Creates a string from a char array            |
+
+---
+
+### 🔁 Casting / Conversion
+
+#### 🔹 Object & Type Casting
+
+| Method                | Returns         | Type     | Description                             |
+| --------------------- | --------------- | -------- | --------------------------------------- |
+| `(TargetType)value`   | TargetType      | Inline   | Explicit cast between compatible types  |
+| `value as TargetType` | TargetType/null | Inline   | Safe cast, returns null if incompatible |
+| `value is TargetType` | bool            | Inline   | Checks if object is of a specific type  |
+| `value.ToString()`    | string          | Instance | Converts value to string                |
+
+---
+
+#### 🔹 String ↔ Numeric
+
+| Method                             | Returns | Type   | Description                               |
+| ---------------------------------- | ------- | ------ | ----------------------------------------- |
+| `Convert.ToInt32(string)`          | int     | Static | Converts string to int, throws on failure |
+| `int.Parse(string)`                | int     | Static | Parses string to int, throws on failure   |
+| `int.TryParse(string, out result)` | bool    | Static | Parses string to int safely               |
+| `Convert.ToDouble(string)`         | double  | Static | Converts string to double                 |
+| `double.TryParse(string, out d)`   | bool    | Static | Parses string to double safely            |
+
+---
+
+#### 🔹 String ↔ Array
+
+| Method                          | Returns   | Type        | Description                                      |
+| ------------------------------- | --------- | ----------- | ------------------------------------------------ |
+| `str.Split(separator)`          | string\[] | Instance    | Splits a string into an array by delimiter       |
+| `string.Join(separator, array)` | string    | Static      | Concatenates array into string with separator    |
+| `string.Concat(array)`          | string    | Static      | Concatenates array into string with no separator |
+| `str.ToCharArray()`             | char\[]   | Instance    | Converts a string to a char array                |
+| `new string(charArray)`         | string    | Constructor | Creates a string from a char array               |
+
+---
