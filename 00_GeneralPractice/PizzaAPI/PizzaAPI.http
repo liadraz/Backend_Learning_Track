@@ -1,0 +1,41 @@
+@PizzaAPI_HostAddress = http://localhost:5094
+
+GET {{PizzaAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{PizzaAPI_HostAddress}}/pizza/3
+Accept: application/json
+
+###
+
+POST {{PizzaAPI_HostAddress}}/pizza/
+Content-Type: application/json
+
+{
+    "name": "Hawaii",
+    "isGlutenFree": false
+}
+
+###
+
+PUT {{PizzaAPI_HostAddress}}/pizza/3
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Hawaiian",
+    "isGlutenFree": false
+}
+
+###
+
+DELETE {{PizzaAPI_HostAddress}}/pizza/3
+
+###
+
+GET {{PizzaAPI_HostAddress}}/pizza/
+Accept: application/json
+
+###
