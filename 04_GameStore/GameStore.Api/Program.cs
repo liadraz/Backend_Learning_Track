@@ -1,6 +1,5 @@
 using GameStore.Api.Data;
 using GameStore.Api.Endpoints;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
